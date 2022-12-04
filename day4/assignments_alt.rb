@@ -10,7 +10,7 @@ def assignments(file)
   big_overlaps = tasks.filter do |t|
     fusion = t[0] & t[1]
     !fusion.empty? && [t[0].size, t[1].size].include?(fusion.size)
-  end
+  end # Range.cover? does the same thing quicker
 
   small_overlaps = tasks.map {|t| t[0] & t[1] }.reject {|t| t.empty? }
   puts "big overlaps : #{big_overlaps.count}"
